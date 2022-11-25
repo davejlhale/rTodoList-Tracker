@@ -1,0 +1,21 @@
+#newCard {
+    margin-top:20px;
+    padding:10px 20px;
+    display:flex;
+    border:1px solid black;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 10px;;
+}
+
+#newCard input {
+    flex: 1 1 70%;
+}
+#newCard .date-picker {
+    flex:1 1 30%;
+}
+#newCard .add-task {
+    margin-top:10px;
+    padding:5px 25px;
+    width:max-content;
+}

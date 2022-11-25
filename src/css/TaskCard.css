@@ -1,0 +1,33 @@
+#taskCard {
+    margin: auto;
+    padding:10px;
+    margin:10px auto;
+    border-bottom:1px dashed black;
+  }
+  #taskCard:last-of-type {
+    border-bottom: none;
+    margin-bottom:0px;
+  }
+  
+
+  .taskcard-banner {
+    display: flex;
+  }
+  
+  .taskcard-name {
+    flex: 0 0 60%;
+    text-align: left;
+  }
+  
+  .taskcard-date {
+    flex: 0 0 25%;
+  }
+  
+  .taskcard-icon {
+    flex: 0 0 5%;
+  }
+
+  #icon {
+    width:18px;
+    aspect-ratio: 1/1;
+  }
