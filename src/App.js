@@ -94,7 +94,7 @@ function App() {
 
   return (
     <div className="App">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet"/>
       <div className="view-wrapper">
         <NewCardInput taskCardsArray={taskCardsArray} updateArray={setTaskCardsArray} />
 

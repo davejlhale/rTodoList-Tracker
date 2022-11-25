@@ -52,7 +52,7 @@ const NewCardInput = ({ taskCardsArray, updateArray }) => {
                     value={value}
                     yearAriaLabel="Year" />
            
-            <button className="add-task"
+            <button className="add-task opt-button"
                 onClick={() => { handleTrack(); }}  >
                 Add Task
             </button>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../css/Comments.css"
 
 const Comments = ({ task, functions }) => {
   const [message, setMessage] = useState(task.comments);
@@ -12,7 +13,7 @@ const Comments = ({ task, functions }) => {
   }
     return (
       <div className="taskcard-comments" onClick={(e)=>handleClicks(e)}>
-        <textarea  value={message} onChange={handleMessageChange}/>
+        <textarea className="comment-box" value={message} onChange={handleMessageChange}/>
       </div>
     )
   }

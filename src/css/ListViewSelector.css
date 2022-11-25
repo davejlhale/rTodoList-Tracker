@@ -4,3 +4,21 @@
 .list-off{
 background-color: rgb(185, 44, 44);
 }
+
+#view-selctor-wrapper{
+background-color: wheat;
+padding-bottom:20px;
+border-left:2px solid black;
+border-right:2px solid black;
+border-bottom:2px solid black;
+display:flex;
+justify-content: space-evenly;
+}
+
+#view-selctor-wrapper button {
+    width:15vw;
+    height:35px;
+    border-radius:15px;
+    border:3px solid rgb(174, 162, 140);
+    margin:0px 20px;
+}

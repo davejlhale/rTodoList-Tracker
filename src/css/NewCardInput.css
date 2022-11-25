@@ -2,14 +2,22 @@
     margin-top:20px;
     padding:10px 20px;
     display:flex;
-    border:1px solid black;
+    border-left:2px solid black;
+    border-right:2px solid black;
+    border-top:2px solid black;
     flex-wrap: wrap;
     justify-content: center;
-    border-radius: 10px;;
+    border-top-left-radius:10px;    
+    border-top-right-radius:10px; 
+  background-color: wheat;
 }
-
+.react-date-picker__wrapper{
+    background-color: rgb(241, 188, 124);
+    border-radius: 3px;
+}
 #newCard input {
-    flex: 1 1 70%;
+    flex: 1 1 60%;
+    margin-right:2%;
 }
 #newCard .date-picker {
     flex:1 1 30%;

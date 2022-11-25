@@ -1,0 +1,22 @@
+.task-options {
+    display:flex;
+    justify-content: center;
+    
+    padding:5px 20px;
+}
+.opt-button {
+    padding:5px 20px;
+    margin:0px 10px;
+    border-radius: 10px;
+    border-color: blanchedalmond;
+    background-color: rgb(241, 188, 124);
+}
+
+.opt-button:hover {
+    padding:5px 20px;
+    margin:0px 10px;
+    border-radius: 10px;
+    border-color: blanchedalmond;
+    background-color: rgb(244, 213, 176);
+    border-style: inset;
+}
