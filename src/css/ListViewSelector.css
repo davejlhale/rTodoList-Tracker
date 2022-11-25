@@ -23,3 +23,6 @@ justify-content: space-evenly;
     margin:0px 20px;
     cursor: pointer;
 }
+#view-selctor-wrapper button:hover{
+    filter :brightness(1.5)
+}
