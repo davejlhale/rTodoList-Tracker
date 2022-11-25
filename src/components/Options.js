@@ -16,7 +16,6 @@ const Options = ({ functions, task }) => {
           : !task.archived ? <button className="opt-button" onClick={(evt) => toggleDone(evt)}> redo</button> :null
         }
   
-        {task.done ? null : <button> edit</button>}
         <button className="opt-button" onClick={(evt) => functions.deleteCard(evt, task)}> delete</button>
         {task.done
           ? <button className="opt-button" onClick={(evt) => functions.archiveCard(evt, task)}> {task.archived

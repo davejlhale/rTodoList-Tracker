@@ -13,7 +13,7 @@ const Comments = ({ task, functions }) => {
   }
     return (
       <div className="taskcard-comments" onClick={(e)=>handleClicks(e)}>
-        <textarea className="comment-box" value={message} onChange={handleMessageChange}/>
+        <textarea className="comment-box" placeholder="...add comments" value={message||null} onChange={handleMessageChange}/>
       </div>
     )
   }

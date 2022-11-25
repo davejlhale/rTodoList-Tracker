@@ -21,4 +21,5 @@ justify-content: space-evenly;
     border-radius:15px;
     border:3px solid rgb(174, 162, 140);
     margin:0px 20px;
+    cursor: pointer;
 }
