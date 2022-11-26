@@ -13,11 +13,11 @@ import NewCardInput from './components/NewCardInput';
 // "" deleting card
 function App() {
 
-  const [taskCardsArray, setTaskCardsArray] = useState(() => {
-    return JSON.parse(localStorage.getItem("taskCards") || [])
-  });
+  const [taskCardsArray, setTaskCardsArray] = useState( () => {  
+    return  JSON.parse(localStorage?.getItem("taskCards") || [])} );
+  
   const [archivedCardsArray, setArchievedCardsArray] = useState(() => {
-    return JSON.parse(localStorage.getItem("archivedCards") || [])
+    return JSON.parse(localStorage?.getItem("archivedCards") || [])
   });
   const [todoListToggle, setTodoListToggle] = useState(true)
   const [archivedListToggle, setArchivedListToggle] = useState(false)
