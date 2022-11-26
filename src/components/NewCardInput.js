@@ -5,17 +5,17 @@ import "../css/NewCardInput.css"
 const NewCardInput = ({ taskCardsArray, updateArray }) => {
  
     const [val, setVal] = useState("");
-    const [value, onChange] = useState(new Date());
+    const [value, onChange] = useState(new Date().toDateString());
     const handleTrack = () => {
  
         if (val.length !== 0) {
-            // Do something with value
+            console.log("date",value)
             let newCard = {
                 title: val,
-                date: value || new Date(),
+                date: value|| new Date().toDateString(),
                 done: false,
                 archived: false,
-                comments: "...add comments"
+                comments: ""
             }
             console.log(taskCardsArray)
             let tmpArray = [...taskCardsArray]
@@ -31,8 +31,7 @@ const NewCardInput = ({ taskCardsArray, updateArray }) => {
     };
        
     return (
-        <div id="newCard" >
-            
+        <div id="newCard" >      
                 <input
                     val={val}
                     placeholder="...New Task"

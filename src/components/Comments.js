@@ -7,13 +7,14 @@ const Comments = ({ task, functions }) => {
   const handleMessageChange = event => {
     setMessage(event.target.value);
     task.comments = event.target.value;
+    functions.editComments(task);
   };
   const handleClicks = (event) => {     
     event.stopPropagation()
   }
     return (
       <div className="taskcard-comments" onClick={(e)=>handleClicks(e)}>
-        <textarea className="comment-box" placeholder="...add comments" value={message||null} onChange={handleMessageChange}/>
+        <textarea className="comment-box" placeholder="...add comments" value={message} onChange={handleMessageChange}/>
       </div>
     )
   }

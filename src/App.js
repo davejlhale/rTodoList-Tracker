@@ -1,7 +1,6 @@
 import './css/App.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import TaskCard from './components/TaskCard';
-import taskCardArray from './data/tasks.js'
 import ListViewSelector from './components/ListViewSelector';
 import NewCardInput from './components/NewCardInput';
 /*  datepicker 
@@ -14,21 +13,35 @@ import NewCardInput from './components/NewCardInput';
 // "" deleting card
 function App() {
 
-  const [taskCardsArray, setTaskCardsArray] = useState(taskCardArray)
-  const [archivedCardsArray, setArchievedCardsArray] = useState([]);
+  const [taskCardsArray, setTaskCardsArray] = useState(() => {
+    return JSON.parse(localStorage.getItem("taskCards") || [])
+  });
+  const [archivedCardsArray, setArchievedCardsArray] = useState(() => {
+    return JSON.parse(localStorage.getItem("archivedCards") || [])
+  });
   const [todoListToggle, setTodoListToggle] = useState(true)
   const [archivedListToggle, setArchivedListToggle] = useState(false)
+
+  React.useEffect(() => {
+    const temp = JSON.stringify(taskCardsArray)
+    console.log("saving")
+    localStorage.setItem("taskCards", temp)
+  }, [taskCardsArray])
+
+  React.useEffect(() => {
+    const tempArch = JSON.stringify(archivedCardsArray)
+    console.log("saving archived")
+    localStorage.setItem("archivedCards", tempArch)
+  }, [archivedCardsArray])
 
   //obj to hold tackcard functionality
   const cardFuncs = {
     deleteCard: function (evt, task) {
-      console.log(task)
       let tmpArray = []
       task.archived
         ? tmpArray = [...archivedCardsArray]
         : tmpArray = [...taskCardsArray]
 
-      console.log(tmpArray)
       const arrayIndex = tmpArray.indexOf(task)
       if (arrayIndex > -1) {
         let answer = window.confirm("Delete?");
@@ -38,40 +51,37 @@ function App() {
       task.archived
         ? setArchievedCardsArray(tmpArray)
         : setTaskCardsArray(tmpArray)
-
-      console.log("delete");
+      console.log("delete task");
     },
 
     archiveCard: function (evt, task) {
+      let tcArray = [...taskCardsArray]
+      let acArray = [...archivedCardsArray]
+
       if (!task.archived) {
-        let tcArray = [...taskCardsArray]
-        let acArray = [...archivedCardsArray]
-
-        task.archived = !task.archived;
-
         const arrayIndex = tcArray.indexOf(task)
         if (arrayIndex > -1) {
           acArray.push(tcArray.splice(arrayIndex, 1)[0])
-          setArchievedCardsArray(acArray);
-          setTaskCardsArray(tcArray);
         }
       } else if (task.archived) {
-        let tcArray = [...taskCardsArray]
-        let acArray = [...archivedCardsArray]
-
-        task.archived = !task.archived;
-
         const arrayIndex = acArray.indexOf(task)
         if (arrayIndex > -1) {
           tcArray.push(acArray.splice(arrayIndex, 1)[0])
-          setArchievedCardsArray(acArray);
-          setTaskCardsArray(tcArray);
         }
       }
+      task.archived = !task.archived;
+      setArchievedCardsArray(acArray);
+      setTaskCardsArray(tcArray);
     },
 
-    editCard: function (index) {
-      console.log("edit");
+    editComments: function (task) {
+      if (task.archived) {
+        let acArray = [...archivedCardsArray]
+        setArchievedCardsArray(acArray);
+      } else {
+        let tcArray = [...taskCardsArray]
+        setTaskCardsArray(tcArray);
+      }
     }
   }
 
@@ -84,7 +94,7 @@ function App() {
       case "archived":
         setArchivedListToggle(!archivedListToggle)
         break;
-        default :
+      default:
         break;
 
     }
@@ -94,7 +104,7 @@ function App() {
 
   return (
     <div className="App">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
       <div className="view-wrapper">
         <NewCardInput taskCardsArray={taskCardsArray} updateArray={setTaskCardsArray} />
 

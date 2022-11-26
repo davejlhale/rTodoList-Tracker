@@ -14,7 +14,7 @@ const TaskCard = ({ task, functions, taskNum }) => {
             <div className="taskcard-banner">
                 <p className="taskcard-icon">{taskNum}</p>
                 <p className="taskcard-name">{task.title}</p>
-                <p className="taskcard-date">{task.date.toDateString()}</p>
+                <p className="taskcard-date">{task.date}</p>
                 <div className="taskcard-icon">
                     {task.done
                         ? <img id="icon" src={tick} alt="(d)" />
