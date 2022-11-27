@@ -7,10 +7,11 @@ const NewCardInput = ({ taskCardsArray, updateArray }) => {
     const [val, setVal] = useState("");
     const [value, onChange] = useState(new Date());
     const handleTrack = () => {
- 
+ const id= taskCardsArray.length || 0;
         if (val.length !== 0) {
             console.log("date",value)
             let newCard = {
+                id: id,
                 title: val,
                 date: value.toDateString()|| new Date().toDateString(),
                 done: false,

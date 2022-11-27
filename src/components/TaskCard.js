@@ -12,7 +12,7 @@ const TaskCard = ({ task, functions, taskNum }) => {
     return (
         <div id="taskCard" onClick={(evt) => { showComments(!comments) }}>
             <div className="taskcard-banner">
-                <p className="taskcard-icon">{taskNum}</p>
+                {/* <p className="taskcard-icon">{taskNum}</p> */}
                 <p className="taskcard-name">{task.title}</p>
                 <p className="taskcard-date">{task.date}</p>
                 <div className="taskcard-icon">

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import TaskCard from './components/TaskCard';
 import ListViewSelector from './components/ListViewSelector';
 import NewCardInput from './components/NewCardInput';
+
 /*  datepicker 
      https://github.com/wojtekmaj/react-calendar 
  */
@@ -37,6 +38,7 @@ function App() {
   });
   const [todoListToggle, setTodoListToggle] = useState(true)
   const [archivedListToggle, setArchivedListToggle] = useState(false)
+  const [dragItem, setDragItem] = useState();
 
   React.useEffect(() => {
     const temp = JSON.stringify(taskCardsArray)
@@ -116,7 +118,32 @@ function App() {
     }
   }
 
-
+  const handleDragStart = (e,index) => {
+    console.log("handleDragStart",index)
+    e.target.style.border="none"
+    setDragItem(index);
+  };
+  
+  const handleDragEnter = (e, index) => {
+    console.log("index over",index,dragItem)
+    e.target.style.opacity=".5"
+    const newList = [...taskCardsArray];
+    const item = newList[dragItem];
+    newList.splice(dragItem, 1);
+    newList.splice(index, 0, item);
+    setDragItem(index);
+    setTaskCardsArray(newList);
+  };
+  
+  const handleDragLeave = (e) => {
+    console.log("s")
+    e.target.style.opacity="1"
+  };
+  
+  const handleDrop = (e,index) => {
+    console.log("handle drop",index)
+    e.target.style.opacity="1"
+  };
 
   return (
     <div className="App">
@@ -126,11 +153,31 @@ function App() {
 
         <ListViewSelector todoListToggle={todoListToggle} archivedListToggle={archivedListToggle} onClickHandler={onToggleList} />
         {todoListToggle ?
+
+
           <div id="taskCards-wrapper">
             {taskCardsArray.map((task, index) => {
-              return <TaskCard key={index} functions={cardFuncs} taskNum={index} task={task} />
+              return  (<div  draggable 
+                key={index} 
+                onDragStart={(e) => handleDragStart(e,index)}
+              onDragEnter={(e) => handleDragEnter(e, index)}
+              onDragLeave={(e) => handleDragLeave(e)}
+              onDrop={(e) => handleDrop(e,index)}
+              onDragOver={(e) => { e.preventDefault()}} 
+              >
+                <TaskCard  
+              key={index} 
+              functions={cardFuncs} 
+              taskNum={index} 
+              task={task} 
+              onClick={(e) => handleDragStart(index)}
+              
+              />
+              
+              </div>)
             })}
           </div>
+
           : null}
 
         {archivedListToggle ?

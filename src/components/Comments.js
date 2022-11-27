@@ -10,7 +10,7 @@ const Comments = ({ task, functions }) => {
     functions.editComments(task);
   };
   const handleClicks = (event) => {     
-    event.stopPropagation()
+     event.stopPropagation()
   }
     return (
       <div className="taskcard-comments" onClick={(e)=>handleClicks(e)}>

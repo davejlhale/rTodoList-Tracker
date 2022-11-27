@@ -1,8 +1,11 @@
 #taskCard {
-    margin: auto;
     padding:10px;
-    margin:10px auto;
+    margin:0px auto;
     border-bottom:1px dashed black;
+    
+  }
+  [draggable=true] {
+    cursor: move;
   }
   #taskCard:last-of-type {
     border-bottom: none;
