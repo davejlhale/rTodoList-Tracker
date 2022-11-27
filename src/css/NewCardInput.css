@@ -1,29 +1,39 @@
 #newCard {
-    margin-top:20px;
-    padding:10px 20px;
+    margin-top:-10px;
+    padding:10px 5px;
     display:flex;
     border-left:2px solid black;
     border-right:2px solid black;
     border-top:2px solid black;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly; 
     border-top-left-radius:10px;    
     border-top-right-radius:10px; 
-  background-color: wheat;
+    background-color: rgb(121, 85, 17);
 }
 .react-date-picker__wrapper{
     background-color: rgb(241, 188, 124);
-    border-radius: 3px;
+    border-radius: 12px;
+    border:3px outset;
+    
+}
+.react-date-picker__inputGroup__input {
+    height:inherit;
 }
 #newCard input {
-    flex: 1 1 60%;
-    margin-right:2%;
+    flex: 1 1 30%;
+    margin:5px .5%;
+    border-radius: 12px;
 }
 #newCard .date-picker {
-    flex:1 1 30%;
+    flex:1 1 10%;
+    margin:5px .5%;
+   
 }
-#newCard .add-task {
-    margin-top:10px;
-    padding:5px 25px;
-    width:max-content;
+
+#newCard  .add-task {
+    flex:1 1 5%;
+    margin:5px .5%;
+    border-radius: 12px;  
+    border:3px outset; 
 }

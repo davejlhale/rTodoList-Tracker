@@ -1,16 +1,21 @@
-#taskCard {
+.taskCard {
     padding:10px;
-    margin:0px auto;
-    border-bottom:1px dashed black;
-    
+    cursor: pointer;
   }
-  [draggable=true] {
+
+  .taskcard-number {
     cursor: move;
+  } 
+ 
+ #taskCards-wrapper >div   {
+      border-bottom:1px dashed black;
   }
-  #taskCard:last-of-type {
-    border-bottom: none;
-    margin-bottom:0px;
-  }
+  #taskCards-wrapper >div:last-of-type   {
+    border-bottom:none; 
+}
+#taskCards-wrapper >div:nth-of-type(odd)  {
+  background-color: rgb(216, 192, 147);
+}
   
 
   .taskcard-banner {
@@ -19,6 +24,7 @@
   
   .taskcard-name {
     flex: 0 0 60%;
+    padding-left:20px;
     text-align: left;
   }
   

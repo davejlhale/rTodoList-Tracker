@@ -1,12 +1,17 @@
 .list-on{
-    background-color: rgb(48, 176, 48);
+    background-color: rgb(45, 170, 45);
+    border: 3px outset grey;
+    cursor: no-drop;
 }
 .list-off{
 background-color: rgb(185, 44, 44);
+border:3px inset grey;
+cursor:grab;
+
 }
 
 #view-selctor-wrapper{
-background-color: wheat;
+background-color: rgb(121, 85, 17);;
 padding-bottom:20px;
 border-left:2px solid black;
 border-right:2px solid black;
@@ -17,11 +22,11 @@ justify-content: space-evenly;
 
 #view-selctor-wrapper button {
     width:15vw;
+    min-width:150px;
     height:35px;
     border-radius:15px;
-    border:3px solid rgb(174, 162, 140);
-    margin:0px 20px;
-    cursor: pointer;
+    margin:0px 2%px;
+    
 }
 #view-selctor-wrapper button:hover{
     filter :brightness(1.5)

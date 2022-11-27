@@ -38,9 +38,12 @@ const NewCardInput = ({ taskCardsArray, updateArray }) => {
                     placeholder="...New Task"
                     type="text"
                     onChange={e => { setVal(e.target.value); }}
-                    onKeyPress={handleKeyPress} >
-                </input>
-
+                    onKeyPress={handleKeyPress} />
+                
+                <button className="add-task opt-button"
+                onClick={() => { handleTrack(); }}  >
+                Add Task
+            </button>
                 <DatePicker
                 className="date-picker"
                     calendarAriaLabel="Toggle calendar"
@@ -52,10 +55,7 @@ const NewCardInput = ({ taskCardsArray, updateArray }) => {
                     value={value}
                     yearAriaLabel="Year" />
            
-            <button className="add-task opt-button"
-                onClick={() => { handleTrack(); }}  >
-                Add Task
-            </button>
+           
 
         </div>
     )

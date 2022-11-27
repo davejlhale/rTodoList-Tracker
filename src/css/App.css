@@ -7,8 +7,9 @@
 
 .App {
   text-align: center;
-  margin: auto;
+  margin:30px auto;
   width: 60%;
+  min-width:320px;
 ;
 }
 
